@@ -2,9 +2,9 @@
 :root {
   --main-color: #19c8fa;
   --transparent-color: rgb(15 116 143 / 70%);
+  --section-paddding: 100px;
 }
 /* End Variables */
-
 /* Start Global Rules */
 * {
   -webkit-box-sizing: border-box;
@@ -18,7 +18,6 @@ html {
 }
 body {
   font-family: "Open Sans", sans-serif;
-  background-color: #333;
 }
 ul {
   list-style: none;
@@ -48,7 +47,50 @@ ul {
   }
 }
 /* End Global Rules */
+/* Start Component */
 
+.main-heading {
+  text-align: center;
+}
+.main-heading h2 {
+  padding: 10px 0;
+  position: relative;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  font-size: 30px;
+  font-weight: normal;
+}
+.main-heading h2::before {
+  content: "";
+  position: absolute;
+  width: 90px;
+  height: 2px;
+  background-color: #222;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -10px;
+}
+.main-heading h2::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: #fff;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 2px solid #222;
+  border-radius: 50%;
+  bottom: -15px;
+}
+.main-heading p {
+  width: 450px;
+  margin: 0 auto 100px;
+  max-width: 100%;
+  line-height: 1.8;
+  color: #777;
+}
+
+/* End Component */
 /* Start Header */
 header {
   position: absolute;
@@ -229,3 +271,43 @@ header nav .form i {
   border: var(--main-color);
 }
 /* End Landing */
+/* Start Sevrices */
+.services {
+  padding-top: var(--section-paddding);
+  padding-bottom: var(--section-paddding);
+}
+@media (min-width: 768px) {
+  .services .services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+    grid-column-gap: 80px;
+    grid-row-gap: 60px;
+  }
+}
+.services .srv-box {
+  display: flex;
+}
+
+.services .srv-box i {
+  margin-right: 60px;
+  color: #444;
+}
+@media (max-width: 767px) {
+  .services .srv-box {
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  .services .srv-box i {
+    margin: 0 0 30px;
+  }
+}
+.services .srv-box h3 {
+  color: var(--main-color);
+  margin-bottom: 20px;
+}
+.services .srv-box p {
+  color: #777;
+  line-height: 1.8;
+}
+/* End Sevvices */
